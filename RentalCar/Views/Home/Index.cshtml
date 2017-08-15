@@ -1,0 +1,27 @@
+﻿@model IEnumerable<RentalCar.Models.Cars.HomeIndexCarModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 class="text-center">Car Rental System</h1>
+    <p class="lead text-center">The coolest Cars Ever!</p>
+    <p class="text-center">
+    <a href="/Cars/Create" class="btn btn-primary btn-lg">Add your</a>
+    <a href="/Cars/All" class="btn btn-primary btn-lg">Take a look</a>
+    </p>
+</div>
+
+<div class="row">
+    @foreach (var car in Model)
+    {
+        <div class="col-md-4">
+            <h2>@car.Make @car.Model (@car.Year)</h2>
+
+            <p><a class="btn btn-default" href="/Cars/Details/@car.Id">
+                <img src="@car.ImageUrl" class="img-responsive" />
+                </a></p>
+        </div>
+    }
+</div>
